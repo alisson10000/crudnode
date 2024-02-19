@@ -28,13 +28,13 @@ const Item = sequelize.define('Item', {
   }
 });
 
-// Sincronizar o modelo com o banco de dados (criar a tabela)
-sequelize.sync()
+// Sincronizar o modelo com o banco de dados (criar o banco de dados e a tabela)
+sequelize.sync({ force: true })
   .then(() => {
-    console.log('Tabela sincronizada');
+    console.log('Banco de dados e tabela criados');
   })
   .catch((error) => {
-    console.error('Erro ao sincronizar tabela:', error);
+    console.error('Erro ao criar banco de dados e tabela:', error);
   });
 
 // Rotas CRUD básicas
